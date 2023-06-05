@@ -1,0 +1,13 @@
+<div class="container">
+<h1>Spaceships Launch</h1>
+
+
+<div>
+   <% @spaceships.each do |spaceship| %>
+     <%= render spaceship %>
+     <p>
+       <%= link_to "Show this spaceships", spaceship %>
+     </p>
+   <% end %>
+ </div>
+</div>
