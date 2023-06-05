@@ -11,12 +11,16 @@ puts "Deleating Database...."
 
 puts "Creating Database...."
 
+test_user = User.create!(
+  email: Faker::Internet.email,
+  password: Faker::Internet.password
+)
 20.times do
   Spaceship.create!(
     name: Faker::Space.nasa_space_craft,
     category: ["Small", "Medium", "Large"].sample,
     location: Faker::Address.full_address,
-    user_id: 1
+    user: test_user
   )
 end
 puts "Database Created! z0/"
