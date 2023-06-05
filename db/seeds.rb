@@ -13,9 +13,10 @@ puts "Creating Database...."
 
 20.times do
   Spaceship.create(
-    name: Faker::Faker::Space.nasa_space_craft,
+    name: Faker::Space.nasa_space_craft,
     category: ["Small", "Medium", "Large"].sample,
     location: Faker::Address.full_address,
+    user_id: 1
   )
 end
 puts "Database Created! z0/"
