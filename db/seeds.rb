@@ -20,6 +20,7 @@ test_user = User.create!(
     name: Faker::Space.nasa_space_craft,
     category: ["Small", "Medium", "Large"].sample,
     location: Faker::Address.full_address,
+    price: rand(1_000_000.50..5_000_000.75).round(2),
     user: test_user
   )
 end
