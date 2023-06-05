@@ -5,3 +5,17 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+require "faker"
+
+puts "Deleating Database...."
+
+puts "Creating Database...."
+
+20.times do
+  Spaceship.create(
+    name: Faker::Faker::Space.nasa_space_craft,
+    category: ["Small", "Medium", "Large"].sample,
+    location: Faker::Address.full_address,
+  )
+end
+puts "Database Created! z0/"
