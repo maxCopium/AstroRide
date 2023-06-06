@@ -5,10 +5,15 @@
     <% @spaceships.each do |spaceship| %>
       <div class="col-md-4">
         <div class="card-spaceship mb-5">
-          <img src="https://source.unsplash.com/random/?rocket">
+          <% if spaceship.photos.attached? %>
+            <%= cl_image_tag(spaceship.photos[0].key) %>
+          <% else %>
+            <img src="https://source.unsplash.com/random/?rocket">
+          <% end %>
 
           <div class="card-spaceship-infos">
             <%= render spaceship %>
+            <p class="card-spaceship-category"><%= spaceship.category %></p>
             <p>
               <%= link_to "Show", spaceship, class: "btn-flat"%>
             </p>

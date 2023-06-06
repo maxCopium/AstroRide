@@ -7,7 +7,7 @@
     <%= f.input :category, as: :select, collection: ['Small', 'Medium', 'Large'], prompt: 'Select Category'%>
     <%= f.input :price, placeholder: "€" %>
     <%= f.input :location, placeholder: 'Location of your launch site' %>
-    <%= f.input :photos, as: :file %>
+    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
   </div>
 
   <div class="form-actions d-flex justify-content-between mt-4">
