@@ -9,8 +9,12 @@ class SpaceshipsController < ApplicationController
 
   def create
     @spaceship = Spaceship.new(spaceship_params)
-    @spaceship.save
-    redirect_to spaceship_path(@spaceship)
+    @spaceship.user = current_user
+    if @spaceship.save
+      redirect_to spaceships_path
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   private
@@ -18,6 +22,4 @@ class SpaceshipsController < ApplicationController
   def spaceship_params
     params.require(:spaceship).permit(:name, :category, :location, :price, :photo)
   end
-
-
 end
