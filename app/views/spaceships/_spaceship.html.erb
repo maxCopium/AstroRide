@@ -1,6 +1,6 @@
 <div id="<%= dom_id spaceship%>">
 <h2><%= spaceship.name %></h2>
-  <p><strong>Category:</strong> <%= spaceship.category %></p>
+  <h3><strong>$</strong> <%= spaceship.price.to_i %> /DAY</h3>
   <p><strong>Location:</strong> <%= spaceship.location %></p>
-  <p><strong>Price:</strong> <%= spaceship.price %></p>
+  <p class="card-spaceship-category"><%= spaceship.category %></p>
 </div>

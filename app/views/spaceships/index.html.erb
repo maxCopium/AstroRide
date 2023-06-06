@@ -1,13 +1,20 @@
 <div class="container">
-<h1>Spaceships Launch</h1>
+  <h1 class=" mb-5 justify-content-center"></h1>
 
+  <div class="row">
+    <% @spaceships.each do |spaceship| %>
+      <div class="col-md-4">
+        <div class="card-spaceship mb-5">
+          <img src="https://source.unsplash.com/random/?rocket">
 
-<div>
-   <% @spaceships.each do |spaceship| %>
-     <%= render spaceship %>
-     <p>
-       <%= link_to "Show this spaceships", spaceship %>
-     </p>
-   <% end %>
- </div>
+          <div class="card-spaceship-infos">
+            <%= render spaceship %>
+            <p>
+              <%= link_to "Show", spaceship, class: "btn-flat"%>
+            </p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>
