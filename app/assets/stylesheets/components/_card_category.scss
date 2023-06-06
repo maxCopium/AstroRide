@@ -39,7 +39,7 @@ object-fit: contain;
 
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) {
-  .cards-category {
+  .card-category {
     grid-template-columns: 1fr 1fr;
   }
 }
