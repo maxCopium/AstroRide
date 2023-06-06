@@ -1,6 +1,12 @@
 <div id="<%= dom_id spaceship%>">
 <h2><%= spaceship.name %></h2>
-  <p><strong>Category:</strong> <%= spaceship.category %></p>
-  <p><strong>Location:</strong> <%= spaceship.location %></p>
-  <p><strong>Price:</strong> <%= spaceship.price %></p>
+  <p>
+    <i class="fa-solid fa-location-dot"></i>
+    <%= spaceship.location.split(',')[-1] %>
+  </p>
+  <h3>
+    <i class="fa-solid fa-dollar-sign"></i>
+    <%= spaceship.price.to_i %>
+    <span style="color: grey">per day</span>
+  </h3>
 </div>
