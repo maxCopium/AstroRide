@@ -11,7 +11,7 @@ class BookingsController < ApplicationController
   private
 
   def calc_total
-    daslkd
+    
   end
 
   def booking_params
