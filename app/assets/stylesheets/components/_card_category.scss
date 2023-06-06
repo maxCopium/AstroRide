@@ -8,7 +8,6 @@
 .cards-category {display: flex;
 justify-content: center;
 gap: 16px;
-object-fit: contain;
 }
 
 
@@ -16,12 +15,15 @@ object-fit: contain;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 16px;
-  color: rgba(255, 255, 255, 0.615);
+  color: rgb(255, 255, 255);
   padding: 15px;
   justify-items: normal;
   width: 100px;
   border-radius: 5px;
+  background-size: cover;
+  background-position: center;
 }
+
 
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
