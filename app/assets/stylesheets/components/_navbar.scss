@@ -9,7 +9,10 @@
 }
 
 .navbar-lewagon .navbar-brand img {
-  width: 40px;
+  width: 50px;
+  background-color: white;
+  border-radius: 5px;
+  margin-left: 10px;
 }
 
 .nav-link {
@@ -21,7 +24,10 @@
   transition: background 0.3s ease;
 }
 
-.navbar-avatar{
-  color: white;
-  justify-content: center;
+.navbar-avatar {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  margin-right: 10px;
+  margin-left: 10px;
 }
