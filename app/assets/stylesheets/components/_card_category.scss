@@ -3,6 +3,7 @@
   flex-direction: row;
   justify-content: center;
   padding: 8px;
+  border: 1pc;
 }
 
 .cards-category {display: flex;
@@ -19,11 +20,17 @@ gap: 16px;
   padding: 15px;
   justify-items: normal;
   width: 100px;
+  border: 1px solid rgb(191, 191, 191);
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
   border-radius: 5px;
   background-size: cover;
   background-position: center;
 }
 
+.secondcard-category:hover {
+  background: #4D04C4;
+  color: white;
+}
 
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
