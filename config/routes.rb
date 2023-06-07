@@ -9,7 +9,6 @@ Rails.application.routes.draw do
     resources :bookings, only: [:new, :create, :show]
   end
   resources :bookings, only: [:update]
-  resources :users do
-    resources :spaceship, only: [:index]
-  end
+  get "/profile", to: "pages#profile", as: :profile
+  get "/bookings", to: "pages#booking", as: :bookings
 end

@@ -10,7 +10,7 @@ class SpaceshipsController < ApplicationController
   def new
     @spaceship = Spaceship.new
   end
-  
+
   def create
     @spaceship = Spaceship.new(spaceship_params)
     @spaceship.user = current_user
