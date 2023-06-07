@@ -21,6 +21,26 @@ class SpaceshipsController < ApplicationController
     end
   end
 
+  def edit
+    @spaceship = Spaceship.find(params[:id])
+  end
+
+  def update
+    @spaceship = Spaceship.find(params[:id])
+    @spaceship.update(spaceship_params)
+    redirect_to spaceship_path(@spaceship)
+  end
+
+  def destroy
+    @spaceship = Spaceship.find(params[:id])
+    if current_user == @spaceship.user
+      @spaceship.destroy
+      redirect_to spaceships_path, status: :see_other
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
   private
 
   def spaceship_params
