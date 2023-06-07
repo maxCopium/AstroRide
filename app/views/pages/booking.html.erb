@@ -1,16 +1,27 @@
-<h1>My Bookings</h1>
+<div class="container">
+  <h1>My Retting Spaceships</h1>
 
-<% if @bookings.empty? %>
-  <p class="fs-5"><i>You don't have any Booking yet!</i></p>
-<% else %>
-  <% @bookings.each do |booking| %>
-    <p>Booking starting on: <%= booking.start_date %></p>
-    <p>Booking ending on: <%= booking.end_date %></p>
-    <% if booking.status == false %>
-      <p> Not accepted yet</p>
-    <% else %>
-      <p> Accepted booking</p>
+  <% if @my_spaceships.empty? %>
+    <p class="fs-5"><i>You don't have any Booking yet!</i></p>
+  <% else %>
+    <% @my_spaceships.each do |spaceship| %>
+      <% spaceship.bookings.each do |booking| %>
+          <div class="mt-2 mb-5 border">
+          <p><strong>Booking starting on:</strong> <%= booking.start_date %></p>
+          <p><strong>Booking ending on:</strong> <%= booking.end_date %></p>
+          <% if booking.status == nil %>
+            <p> <strong>Status:</strong> Booking not accepted yet!</p>
+          <% else %>
+            <p> <strong>Status:</strong> Booking Accepted!</p>
+          <% end %>
+          <p><strong>Total:</strong><%= booking.total %>$</p>
+        </div>
+        <%= link_to "Update Booking", edit_booking_path(booking)%>
+        <%= link_to "Delete Booking", booking_path(booking), class: "btn btn-primary",
+                    data: { turbo_method: 'DELETE',
+                    turbo_confirm: 'Are you sure?' },
+                    class: "btn btn-danger" %>
+      <% end %>
     <% end %>
-    <%= booking.total %>
   <% end %>
-<% end %>
+</div>
