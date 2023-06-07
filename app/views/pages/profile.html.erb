@@ -1,0 +1,12 @@
+<h1>My Spaceships</h1>
+
+<% if @spaceships.empty? %>
+  <p class="fs-5"><i>You don't have any spaceship yet!</i></p>
+<% else %>
+  <% @spaceships.each do |spaceship| %>
+    <%= spaceship.name %>
+    <%= spaceship.location %>
+    <%= spaceship.price %>
+    <%= spaceship.category %>
+  <% end %>
+<% end %>

@@ -1,0 +1,16 @@
+<h1>My Bookings</h1>
+
+<% if @bookings.empty? %>
+  <p class="fs-5"><i>You don't have any Booking yet!</i></p>
+<% else %>
+  <% @bookings.each do |booking| %>
+    <p>Booking starting on: <%= booking.start_date %></p>
+    <p>Booking ending on: <%= booking.end_date %></p>
+    <% if booking.status == false %>
+      <p> Not accepted yet</p>
+    <% else %>
+      <p> Accepted booking</p>
+    <% end %>
+    <%= booking.total %>
+  <% end %>
+<% end %>

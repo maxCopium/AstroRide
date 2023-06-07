@@ -1,13 +1,43 @@
+
+
+<div class ="container-category">
+<div class="cards-category">
+  <div class="secondcard-category d-flex justify_content_center" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://source.unsplash.com/random/?nasa)">
+    Economy
+  </div>
+
+  <div class="secondcard-category d-flex justify_content_center" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://source.unsplash.com/random/?space,rocket)">
+    Premium
+  </div>
+
+  <div class="secondcard-category d-flex justify_content_center" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://source.unsplash.com/random/?space,flight)">
+    Luxury
+  </div>
+</div>
+</div>
+
 <div class="container">
-<h1>Spaceships Launch</h1>
+  <h1 class=" mb-5 justify-content-center"></h1>
 
+  <div class="row">
+    <% @spaceships.each do |spaceship| %>
+      <div class="col-md-4">
+        <div class="card-spaceship mb-5">
+          <% if spaceship.photos.attached? %>
+            <%= cl_image_tag(spaceship.photos[0].key) %>
+          <% else %>
+            <img src="https://source.unsplash.com/random/?rocket">
+          <% end %>
 
-<div>
-   <% @spaceships.each do |spaceship| %>
-     <%= render spaceship %>
-     <p>
-       <%= link_to "Show this spaceships", spaceship %>
-     </p>
-   <% end %>
- </div>
+          <div class="card-spaceship-infos">
+            <%= render spaceship %>
+            <p class="card-spaceship-category"><%= spaceship.category %></p>
+            <p>
+              <%= link_to "Show", spaceship, class: "btn-flat"%>
+            </p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>

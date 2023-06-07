@@ -1,0 +1,52 @@
+.card-spaceship {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  border-radius: 5px;
+}
+
+.card-spaceship > img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+
+.card-spaceship h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-spaceship h3 {
+  font-size: 14px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-spaceship p {
+  font-size: 12px;
+  opacity: .7;
+  margin: 0;
+}
+
+.card-spaceship .card-spaceship-infos {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+  height: 90px;
+}
+
+.card-spaceship-infos .card-spaceship-user {
+  position: absolute;
+  right: 16px;
+  top: -20px;
+  width: 40px;
+}
+.card-spaceship-category {
+  display: inline-block;
+  border: 1px solid rgb(191, 191, 191);
+  border-radius: 5px;
+  padding: 2px 5px;
+}
