@@ -2,11 +2,11 @@
   <div class="col-md-12">
     <h1>My Spaceships</h1>
         <% if @spaceships.empty? %>
-          <p class="fs-5 mt-5 mb-2"><i>You do not have any spachips yet! </i><i class="fa-brands fa-rocketchat"></i></p>
+          <p class="fs-5 mt-5 mb-2"><i>You do not have any spaceships yet! </i><i class="fa-brands fa-rocketchat"></i></p>
 
           <br>
 
-          <%= link_to "Rent your first Spaceship!", new_spaceship_path, class: "btn btn-success mb-5" %>
+          <%= link_to "Rent out your first spaceship!", new_spaceship_path, class: "btn btn-success mb-5" %>
         <% else %>
           <% @spaceships.each do |spaceship| %>
             <div class="card-show mb-5 mt-5">
