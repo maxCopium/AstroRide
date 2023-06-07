@@ -7,11 +7,15 @@ class SpaceshipsController < ApplicationController
     @spaceship = Spaceship.new
   end
 
+  def show
+    @spaceship = Spaceship.find(params[:id])
+  end
+
   def create
     @spaceship = Spaceship.new(spaceship_params)
     @spaceship.user = current_user
     if @spaceship.save
-      redirect_to spaceships_path
+      redirect_to spaceship_path(@spaceship)
     else
       render :new, status: :unprocessable_entity
     end
