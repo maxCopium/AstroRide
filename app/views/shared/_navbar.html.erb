@@ -1,13 +1,26 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
-    <%= link_to "spaceships", class: "navbar-brand" do %>
-      <%= image_tag "https://drive.google.com/uc?export=view&id=1jQgvYpjTonPAE6qFoFam_HXaiEiZ4snq" %>
+    <%= link_to(root_path, class: "navbar-brand") do %>
+          <i class="fa-solid fa-rocket fa-xl" style="color: #ffffff; margin-left: 20px;"></i>
     <% end %>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-
+    <div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12 col-lg-6">
+<form novalidate="novalidate" class="simple_form search" action="/" accept-charset="UTF-8" method="get">
+  <div class="search-form-control form-group">
+    <input class="form-control string required" type="text" name="search[query]" id="search_query" placeholder="What would be your dream spaceship ?"/>
+    <button name="button" type="submit" class="btn btn-flat">
+      <i class="fas fa-search"></i>
+    </button>
+  </div>
+      </div>
+  </div>
+</div>
+</form>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
@@ -19,7 +32,7 @@
           </li>
           <li class="nav-item dropdown">
           <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fa-regular fa-user fa-sm navbar-avatar"></i>
+            <i class="fa-regular fa-user fa-sm navbar-avatar", style="color: white;"></i>
           </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Action", "#", class: "dropdown-item" %>

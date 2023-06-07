@@ -4,7 +4,7 @@
 
   <div class="form-inputs">
     <%= f.input :name, placeholder: 'Spaceship name' %>
-    <%= f.input :category, as: :select, collection: ['Small', 'Medium', 'Large'], prompt: 'Select Category'%>
+    <%= f.input :category, as: :select, collection: ['Economy', 'Premium', 'Luxury'], prompt: 'Select Category'%>
     <%= f.input :price, placeholder: "€" %>
     <%= f.input :location, placeholder: 'Location of your launch site' %>
     <%= f.input :photos, as: :file, input_html: { multiple: true } %>
