@@ -15,7 +15,27 @@ class SpaceshipsController < ApplicationController
     @spaceship = Spaceship.new(spaceship_params)
     @spaceship.user = current_user
     if @spaceship.save
-      redirect_to spaceships_path
+      redirect_to spaceship_path(@spaceship)
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
+  def edit
+    @spaceship = Spaceship.find(params[:id])
+  end
+
+  def update
+    @spaceship = Spaceship.find(params[:id])
+    @spaceship.update(spaceship_params)
+    redirect_to spaceship_path(@spaceship)
+  end
+
+  def destroy
+    @spaceship = Spaceship.find(params[:id])
+    if current_user == @spaceship.user
+      @spaceship.destroy
+      redirect_to spaceships_path, status: :see_other
     else
       render :new, status: :unprocessable_entity
     end
