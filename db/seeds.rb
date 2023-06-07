@@ -7,14 +7,15 @@
 #   Character.create(name: "Luke", movie: movies.first)
 require "faker"
 
-puts "Deleating Database...."
-
+puts "Deleting Database...."
+Spaceship.delete_all
 puts "Creating Database...."
 
 test_user = User.create!(
   email: Faker::Internet.email,
   password: Faker::Internet.password
 )
+
 20.times do
   Spaceship.create!(
     name: Faker::Space.nasa_space_craft,
