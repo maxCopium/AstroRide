@@ -35,7 +35,7 @@ class SpaceshipsController < ApplicationController
     @spaceship = Spaceship.find(params[:id])
     if current_user == @spaceship.user
       @spaceship.destroy
-      redirect_to spaceships_path, status: :see_other
+      redirect_to profile_path, status: :see_other
     else
       render :new, status: :unprocessable_entity
     end
