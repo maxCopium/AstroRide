@@ -22,7 +22,19 @@ class BookingsController < ApplicationController
   end
 
   def update
-    
+    @booking = Booking.find(params[:id])
+    if @booking.spaceship.user == current_user
+      @booking.update(booking_params)
+      redirect_to bookings_path
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    @booking = Booking.find(params[:id])
+    @booking.destroy
+    redirect_to bookings_path, status: :see_other
   end
 
   private
@@ -37,6 +49,6 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:start_date, :end_date)
+    params.require(:booking).permit(:start_date, :end_date, :status)
   end
 end

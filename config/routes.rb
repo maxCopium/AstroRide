@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :spaceships do
     resources :bookings, only: [:new, :create, :show]
   end
-  resources :bookings, only: [:update]
+  resources :bookings, only: [:edit, :update, :destroy]
   get "/profile", to: "pages#profile", as: :profile
   get "/bookings", to: "pages#booking", as: :bookings
 end
