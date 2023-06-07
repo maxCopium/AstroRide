@@ -36,6 +36,11 @@ gap: 16px;
   color: white;
 }
 
+.secondcard-category .secondcard-category {
+  border: 2px solid #4D04C4;
+  outline: none !important;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
   .secondcard-category {
