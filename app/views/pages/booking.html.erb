@@ -16,8 +16,8 @@
           <% end %>
           <p><strong>Total:</strong><%= booking.total %>$</p>
         </div>
-        <%= link_to "Update Booking", edit_booking_path(booking)%>
-        <%= link_to "Delete Booking", booking_path(booking), class: "btn btn-primary",
+        <%= link_to "Update Booking", edit_booking_path(booking), class: "btn-flat btn-primary"%>
+        <%= link_to "Delete Booking", booking_path(booking),
                     data: { turbo_method: 'DELETE',
                     turbo_confirm: 'Are you sure?' },
                     class: "btn btn-danger" %>
@@ -41,8 +41,7 @@
       <% end %>
       <p><strong>Total:</strong><%= booking.total %>$</p>
       </div>
-      <%= link_to "Update Booking", edit_booking_path(booking)%>
-      <%= link_to "Delete Booking", booking_path(booking), class: "btn btn-primary",
+      <%= link_to "Delete Booking", booking_path(booking),
                   data: { turbo_method: 'DELETE',
                   turbo_confirm: 'Are you sure?' },
                   class: "btn btn-danger" %>
