@@ -1,5 +1,5 @@
 <div class="container">
-  <h1>My Bookings</h1>
+  <h1>My Retting Spaceships</h1>
 
   <% if @my_spaceships.empty? %>
     <p class="fs-5"><i>You don't have any Booking yet!</i></p>
@@ -17,7 +17,7 @@
           <p><strong>Total:</strong><%= booking.total %>$</p>
         </div>
         <%= link_to "Update Booking", edit_booking_path(booking)%>
-        <%= link_to "Delete Booking", bookings_path, class: "btn btn-primary",
+        <%= link_to "Delete Booking", booking_path(booking), class: "btn btn-primary",
                     data: { turbo_method: 'DELETE',
                     turbo_confirm: 'Are you sure?' },
                     class: "btn btn-danger" %>
