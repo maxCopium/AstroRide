@@ -8,12 +8,12 @@
           <div class="d-flex align-items-center justify-content-center">
             <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
               <div class="carousel-inner">
-                <div class="carousel-item active">
-                  <%= cl_image_tag(@spaceship.photos[0].key, class:"d-block w-100", style:"object-fit: cover;") %>
+                <div class="carousel-item active" style="height: 300px; object-fit: cover;">
+                  <%= cl_image_tag(@spaceship.photos[0].key, class:"d-block w-100") %>
                 </div>
                 <% @spaceship.photos.drop(1).each do |photo| %>
-                  <div class="carousel-item">
-                    <%= cl_image_tag(photo.key, class:"d-block w-100", style:"object-fit: cover;") %>
+                  <div class="carousel-item" style="height: 300px; object-fit: cover;">
+                    <%= cl_image_tag(photo.key, class:"d-block w-100") %>
                   </div>
                 <% end %>
               </div>
