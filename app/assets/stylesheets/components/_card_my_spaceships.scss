@@ -1,0 +1,66 @@
+.card-my-spaceships {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  display: inline-flex;
+  place-items: center;
+  width: inherit;
+}
+
+.card-my-spaceships > img {
+  float: left;
+  width: 150px;
+  height: 80px;
+  object-fit: cover;
+}
+
+
+.card-my-spaceships h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+  padding-left: 10px;
+}
+
+.card-my-spaceships h3 {
+  font-size: 14px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-my-spaceships p {
+  font-size: 12px;
+  opacity: .7;
+  margin: 0;
+}
+
+.card-my-spaceships .card-my-spaceships-infos {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
+
+.card-my-spaceships-infos .card-my-spaceships-user {
+  position: absolute;
+  right: 16px;
+  top: -20px;
+  width: 40px;
+}
+.card-my-spaceships-category {
+  display: inline-block;
+  border: 1px solid rgb(191, 191, 191);
+  border-radius: 5px;
+  padding: 2px 5px;
+}
+
+.card-my-spaceships-content {
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: inherit;
+  position: relative;
+  width: inherit;
+  padding-right: 10px;
+}

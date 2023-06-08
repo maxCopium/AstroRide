@@ -44,7 +44,9 @@
             <% if @spaceship.user != current_user %>
               <%= link_to "Book", new_spaceship_booking_path(@spaceship), class: "btn-flat"%>
             <% else %>
-              <%= link_to "Update", edit_spaceship_path(@spaceship), class: "btn btn-success" %>
+              <%= link_to edit_spaceship_path(@spaceship), class: "btn btn-success" do %>
+                <%= content_tag(:i, "", class: "fa-solid fa-pencil-alt") %>
+              <% end %>
             <% end %>
           </p>
         </div>
