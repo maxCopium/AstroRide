@@ -42,7 +42,9 @@
       </div>
       <p class="card-show-category"><%= @spaceship.category %></p>
       <p>
-        <%= link_to "Book", new_spaceship_booking_path(@spaceship), class: "btn-flat"%>
+        <%= link_to new_spaceship_booking_path(@spaceship) do %>
+        <%= render "shared/rocket_button" %>
+        <% end %>
       </p>
     </div>
   </div>
