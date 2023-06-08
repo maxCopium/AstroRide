@@ -10,6 +10,13 @@ class SpaceshipsController < ApplicationController
 
   def show
     @spaceship = Spaceship.find(params[:id])
+
+    @markers = [
+      {
+        lat:@spaceship.latitude,
+        lng: @spaceship.longitude,
+        marker_html: render_to_string(partial: "marker")
+    }]
   end
 
   def new
