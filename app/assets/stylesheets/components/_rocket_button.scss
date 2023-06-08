@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap");
-$accent: #9050f7;
-$accentHover: #853ef9;
+$accent: #9042f7;
+$accentHover: #8b12ee;
 $white: #FAFAFA;
 $duration: 0.5s;
 $ease: cubic-bezier(0.68, 0.15, 0.31, 1.05);
@@ -27,6 +27,7 @@ body-nutton {
 	padding: initial;
 	transition: all $duration $ease;
   margin: 8px;
+
 
 	&:hover {
 		cursor: pointer;
