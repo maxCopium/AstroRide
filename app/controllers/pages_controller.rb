@@ -12,7 +12,7 @@ class PagesController < ApplicationController
 
   def booking
     @my_spaceships = current_user.spaceships.joins(:bookings)
-    @my_bookings = current_user.bookings
+    @my_bookings = current_user.bookings.joins(:spaceship)
     if current_user.nil?
       redirect_to spaceships_path
     else
