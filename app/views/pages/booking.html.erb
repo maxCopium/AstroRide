@@ -80,7 +80,7 @@
 <div class="container">
   <h1 class=" mb-5">My Bookings</h1>
   <% if @my_bookings.empty? %>
-    <p class="fs-5"><em>You don't have any Booking yet! </em><i class="fa-brands fa-rocketchat fs-1 text-success"></i></p>
+    <p class="fs-5"><em>You don't have any Booking yet! </em></p>
   <% else %>
     <div class="row">
       <% @my_bookings.each do |booking| %>
