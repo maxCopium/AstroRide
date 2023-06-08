@@ -17,6 +17,7 @@ class SpaceshipsController < ApplicationController
         lng: @spaceship.longitude,
         marker_html: render_to_string(partial: "marker")
     }]
+    @booking = Booking.new
   end
 
   def new

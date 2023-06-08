@@ -5,7 +5,7 @@ export default class extends Controller {
   connect() {
     console.log("Hi")
     var typed = new Typed(this.element, {
-      strings: ['Where Shapeships Become Yours'],
+      strings: ['Where Spaceships Become Yours'],
       typeSpeed: 90,
       loop: false
     });
