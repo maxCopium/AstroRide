@@ -8,7 +8,8 @@
         <%= f.input :end_date, as: :string, input_html: { data: { flatpickr_target: "endTime" } } %>
       <div class="d-flex justify-content-between mt-4">
         <%= link_to "Cancel", spaceship_path(@spaceship), class: "btn btn-danger"%>
-        <%= f.button :submit, class: 'btn btn-gradient' %>
+        <%#= f.button :submit, class: 'btn btn-gradient' %>
+        <%= render "shared/rocket_button" %>
       </div>
     <% end %>
   </div>

@@ -1,49 +1,60 @@
-<div class="col-md-6 offset-md-3 mt-4">
-  <div class="card-show mb-5">
-    <% if @spaceship.photos.attached? %>
-      <div class="d-flex align-items-center justify-content-center">
-        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <%= cl_image_tag(@spaceship.photos[0].key, class:"d-block w-100", style:"object-fit: cover;") %>
-            </div>
-            <% @spaceship.photos.drop(1).each do |photo| %>
-              <div class="carousel-item">
-                <%= cl_image_tag(photo.key, class:"d-block w-100", style:"object-fit: cover;") %>
+<div class="container mt-4">
+          <h1><%= @spaceship.name %></h1>
+
+  <div class="row">
+    <div class="col-md-6 ">
+      <div class="card-show mb-5">
+        <% if @spaceship.photos.attached? %>
+          <div class="d-flex align-items-center justify-content-center">
+            <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <%= cl_image_tag(@spaceship.photos[0].key, class:"d-block w-100", style:"object-fit: cover;") %>
+                </div>
+                <% @spaceship.photos.drop(1).each do |photo| %>
+                  <div class="carousel-item">
+                    <%= cl_image_tag(photo.key, class:"d-block w-100", style:"object-fit: cover;") %>
+                  </div>
+                <% end %>
               </div>
-            <% end %>
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
           </div>
-          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
+        <% else %>
+          <img src="https://source.unsplash.com/random/?rocket" style="width: 100px; height: 100px;">
+        <% end %>
+
+        <div class="card-show-infos">
+          <div>
+            <h3>
+              <i class="fa-solid fa-dollar-sign"></i>
+              <%= @spaceship.price %>
+              <span style="color: grey">per day</span>
+            </h3>
+          </div>
+          <p class="card-show-category"><%= @spaceship.category %></p>
+          <p>
+            <%= link_to "Book", new_spaceship_booking_path(@spaceship), class: "btn-flat"%>
+          </p>
         </div>
       </div>
-    <% else %>
-      <img src="https://source.unsplash.com/random/?rocket" style="width: 100px; height: 100px;">
-    <% end %>
+    </div>
 
-    <div class="card-show-infos">
-      <div>
-        <h2><%= @spaceship.name %></h2>
-        <p>
-          <i class="fa-solid fa-location-dot"></i>
-          <%= @spaceship.location %>
-        </p>
-        <h3>
-          <i class="fa-solid fa-dollar-sign"></i>
-          <%= @spaceship.price %>
-          <span style="color: grey">per day</span>
-        </h3>
+    <div class="col-md-6">
+      <div class="card-show mb-5">
+        <p class="p-2">
+              <i class="fa-solid fa-location-dot"></i>
+              <%= @spaceship.location %>
+            </p>
+        <div style="width: 100%; height: 300px;" data-controller="map" data-map-markers-value="<%= @markers.to_json %>" data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
       </div>
-      <p class="card-show-category"><%= @spaceship.category %></p>
-      <p>
-        <%= link_to "Book", new_spaceship_booking_path(@spaceship), class: "btn-flat"%>
-      </p>
     </div>
   </div>
 </div>
