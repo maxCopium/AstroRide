@@ -6,10 +6,14 @@
     <%= simple_form_for [@spaceship, @booking], data: { controller: 'flatpickr' } do |f| %>
         <%= f.input :start_date, as: :string, input_html: { data: { flatpickr_target: "startTime" } } %>
         <%= f.input :end_date, as: :string, input_html: { data: { flatpickr_target: "endTime" } } %>
-      <div class="d-flex justify-content-between mt-4">
-        <%= link_to "Cancel", spaceship_path(@spaceship), class: "btn btn-danger"%>
+      <div class="d-flex justify-content-between align-items-center mt-4">
+        <div>
+          <%= link_to "Cancel", spaceship_path(@spaceship), class: "btn btn-danger"%>
+        </div>
         <%#= f.button :submit, class: 'btn btn-gradient' %>
-        <%= render "shared/rocket_button" %>
+        <div>
+          <%= render "shared/rocket_button" %>
+        </div>
       </div>
     <% end %>
   </div>
