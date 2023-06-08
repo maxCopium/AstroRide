@@ -41,7 +41,11 @@
           </div>
           <p class="card-show-category"><%= @spaceship.category %></p>
           <p>
-            <%= link_to "Book", new_spaceship_booking_path(@spaceship), class: "btn-flat"%>
+            <% if @spaceship.user != current_user %>
+              <%= link_to "Book", new_spaceship_booking_path(@spaceship), class: "btn-flat"%>
+            <% else %>
+              <%= link_to "Update", edit_spaceship_path(@spaceship), class: "btn btn-success" %>
+            <% end %>
           </p>
         </div>
       </div>

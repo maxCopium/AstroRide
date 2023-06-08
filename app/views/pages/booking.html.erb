@@ -87,7 +87,7 @@
         <div class="col-md-4">
           <div class="card-spaceship mb-5">
             <% if booking.spaceship.photos.attached? %>
-              <%= cl_image_tag(spaceship.photos[0].key) %>
+              <%= cl_image_tag(booking.spaceship.photos[0].key) %>
             <% else %>
               <img src="https://source.unsplash.com/random/?rocket">
             <% end %>

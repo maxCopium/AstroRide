@@ -1,7 +1,7 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
     <%= link_to(root_path, class: "navbar-brand") do %>
-          <i class="fa-solid fa-rocket fa-xl" style="color: #ffffff; margin-left: 20px;"></i>
+          <i class="fa-solid fa-rocket fs-1" style="color: #ffffff; margin-left: 25px;"></i>
     <% end %>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -25,23 +25,26 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
-          <li class="nav-item active ">
-            <%= link_to "Add Spaceship", new_spaceship_path, class: "nav-link"%>
-          </li>
-          <li class="nav-item active ">
-            <%= link_to "My Spaceships", profile_path, class: "nav-link"%>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Bookings", bookings_path, class: "nav-link" %>
-          </li>
           <li class="nav-item dropdown">
           <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fa-regular fa-user fa-sm navbar-avatar", style="color: white;"></i>
+            <i class="fa-solid fa-user-astronaut fs-1", style="color: white; margin-right: 25px"></i>
           </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Action", "#", class: "dropdown-item" %>
-              <%= link_to "Another action", "#", class: "dropdown-item" %>
+              <div>
+              <%= link_to "Home", spaceships_path, class: "dropdown-item" %>
+              </div>
+              <div class="d-flex">
+              <%= link_to "Rent a Spaceship", new_spaceship_path, class: "dropdown-item"%>
+              </div>
+              <div>
+              <%= link_to "My Spaceships", profile_path, class: "dropdown-item" %>
+              </div>
+              <div>
+              <%= link_to "My Bookings", bookings_path, class: "dropdown-item" %>
+              </div>
+              <div>
               <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+              </div>
             </div>
           </li>
         <% else %>
