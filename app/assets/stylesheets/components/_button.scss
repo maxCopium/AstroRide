@@ -12,6 +12,14 @@
   opacity: 1;
 }
 
+.btn-del {
+  color: lightgrey;
+  text-decoration: none;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: lightgrey!important;
+  transition: background 0.3s ease;
+}
 .btn-flat {
   color: white;
   text-decoration: none;
