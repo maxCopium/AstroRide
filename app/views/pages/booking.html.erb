@@ -2,80 +2,79 @@
   <h1 class="mb-4">My Rented Spaceships</h1>
 
   <% if @my_spaceships.empty? %>
-    <p class="fs-5"><i>You don't have any Booking yet!</i></p>
+    <p class="fs-5"><i>You don't have any bookings yet!</i></p>
   <% else %>
-
-    <div class="row"></div>
+    <% used_spaceships = [] %>
+    <div class="row">
       <% @my_spaceships.each do |spaceship| %>
-        <div class="col-md-4">
-          <div class="card-spaceship mb-5">
-            <% if spaceship.photos.attached? %>
-              <%= cl_image_tag(spaceship.photos[0].key) %>
-            <% else %>
-              <img src="https://source.unsplash.com/random/?rocket">
-            <% end %>
-            <div class="card-spaceship-infos">
-              <h2><%= spaceship.name %></h2>
-              <p>
-                <i class="fa-solid fa-location-dot"></i>
-                <%= spaceship.location.split(',')[-1] %>
-              </p>
-              <h3>
-                <i class="fa-solid fa-dollar-sign"></i>
-                <%= spaceship.price.to_i %>
-                <span style="color: grey">per day</span>
-              </h3>
-              <h3 class="card-spaceship-category">
-                <%= spaceship.category %>
-              </h3>
-            </div>
-            <% spaceship.bookings.each do |booking| %>
-              <div class="container mt-2">
-                <div class="d-flex justify-content-between">
-                  <h3 class="d-flex align-items-center ms-3">
-                    <i class="fa-solid fa-calendar-check fs-2"></i>
-                    <p class="ms-2 fs-5 mt-2"><%= booking.start_date %></p>
-                  </h3>
-                  <h3 class="d-flex align-items-center ms-0 mt-2 me-3">
-                    <i class="fa-solid fa-calendar-xmark fs-2"></i>
-                    <p class="ms-2 fs-5 mt-1"><%= booking.end_date %></p>
-                  </h3>
-                </div>
-
-                <h1 class="d-flex align-items-center mt-3">
-                Total:
-                  <p class="ms-2 fs-5 mt-1">$ <%= booking.total%></p>
-                </h1>
-              </div>
-                <br>
-
-              <div class="d-flex justify-content-center mb-3">
-                <h3>
-                  <% if booking.status == nil %>
-                    <h3 class="text-danger fs-5"><i class="fa-solid fa-circle-xmark"></i></i> Booking not accepted yet!</h3>
-                  <% else %>
-                    <h3 class="text-success fs-5"><i class="fa-solid fa-circle-check"></i></i> Booking Accepted!</h3>
-                  <% end %>
+        <% if !used_spaceships.include?(spaceship) %>
+          <div class="col-md-4">
+            <div class="card-spaceship mb-5">
+              <% if spaceship.photos.attached? %>
+                <%= cl_image_tag(spaceship.photos[0].key) %>
+              <% else %>
+                <img src="https://source.unsplash.com/random/?rocket">
+              <% end %>
+              <div class="card-spaceship-infos">
+                <%= render spaceship %>
+                <h3 class="card-spaceship-category">
+                  <%= spaceship.category %>
                 </h3>
               </div>
-              <div class="d-flex justify-content-center m-3 mt-4">
-                <div>
-                  <%= link_to edit_booking_path(booking), class: "btn btn-success me-5" do %>
-                    <%= content_tag(:i, "", class: "fa-solid fa-pencil-alt") %>
-                  <% end %>
+              <% spaceship.bookings.each do |booking| %>
+                <div class="container mt-2 border-top">
+                  <div class="d-flex justify-content-between">
+                    <h3 class="d-flex align-items-center ms-3">
+                      <i class="fa-solid fa-calendar-check fs-2"></i>
+                      <p class="ms-2 fs-5 mt-2"><%= booking.start_date %></p>
+                    </h3>
+                    <h3 class="d-flex align-items-center ms-0 mt-2 me-3">
+                      <i class="fa-solid fa-calendar-xmark fs-2"></i>
+                      <p class="ms-2 fs-5 mt-1"><%= booking.end_date %></p>
+                    </h3>
+                  </div>
+
+                  <h3 class="d-flex align-items-center mt-3 fs-3">
+                    Total:
+                    <p class="ms-2 fs-5 mt-1">$ <%= booking.total.to_i %></p>
+                  </h3>
                 </div>
-                <div>
-                  <%= link_to booking_path(booking),
-                      data: { turbo_method: 'DELETE',
-                      turbo_confirm: "Delete #{booking.spaceship.name} Booking?" },
-                      class: "btn btn-danger ms-5" do %>
-                      <%= content_tag(:i, "", class: "fa-solid fa-trash-alt") %>
-                  <% end %>
+                <br>
+                <div class="mb-3">
+                  <h3>
+                    <% if booking.status == nil %>
+                      <h3 class="d-flex justify-content-center text-danger fs-5">
+                        <i class="fa-solid fa-circle-xmark"> </i> Booking pending!
+                      </h3>
+                      <div class="d-flex justify-content-center m-3 mt-4">
+                        <div>
+                          <%= link_to accept_booking_path(booking), class: "text-success me-4" do %>
+                            <%= content_tag(:i, "", class: "fa-solid fa-circle-check fs-1") %>
+                          <% end %>
+                        </div>
+                        <div>
+                          <%= link_to booking_path(booking), data: { turbo_method: 'DELETE', turbo_confirm: "Reject #{booking.spaceship.name} Booking?" }, class: "text-danger ms-4" do %>
+                            <%= content_tag(:i, "", class: "fa-solid fa-circle-xmark fs-1") %>
+                          <% end %>
+                        </div>
+                      </div>
+                    <% else %>
+                      <h3 class="d-flex justify-content-center text-success fs-5">
+                        <i class="fa-solid fa-circle-check"></i> Booking Accepted!
+                      </h3>
+                      <div class="d-flex justify-content-end me-3">
+                        <%= link_to booking_path(booking), data: { turbo_method: 'DELETE', turbo_confirm: "You will be charged for #{booking.total}$ \n Cancel #{booking.spaceship.name} booking anyway?" }, class: "btn btn-danger mt-3" do %>
+                          <%= content_tag(:i, "", class: "fa-solid fa-trash-can fs-4") %>
+                        <% end %>
+                      </div>
+                    <% end %>
+                  </h3>
                 </div>
-              </div>
-            <% end %>
+              <% end %>
+            </div>
+            <% used_spaceships << spaceship %>
           </div>
-        </div>
+        <% end %>
       <% end %>
     </div>
   <% end %>
@@ -97,21 +96,23 @@
             <% end %>
 
             <div class="card-spaceship-infos">
-              <h2><%= booking.spaceship.name %></h2>
-              <p>
-                <i class="fa-solid fa-location-dot"></i>
-                <%= booking.spaceship.location.split(',')[-1] %>
-              </p>
-              <h3>
-                <i class="fa-solid fa-dollar-sign"></i>
-                <%= booking.spaceship.price.to_i %>
-                <span style="color: grey">per day</span>
-              </h3>
-              <h3 class="card-spaceship-category">
-                <%= booking.spaceship.category %>
-              </h3>
+              <div id="<%= dom_id booking.spaceship%>">
+<h2 class="mb-1"><%= booking.spaceship.name %></h2>
+  <p>
+    <i class="fa-solid fa-location-dot"></i>
+    <%= booking.spaceship.location.split(',')[-1] %>
+  </p>
+  <h3>
+    <i class="fa-solid fa-dollar-sign"></i>
+    <%= booking.spaceship.price.to_i %>
+    <span style="color: grey">per day</span>
+  </h3>
+</div>
+<h3 class="card-spaceship-category">
+                  <%= booking.spaceship.category %>
+                </h3>
             </div>
-            <div class="container mt-2">
+            <div class="container mt-2 border-top">
               <div class="d-flex justify-content-between">
                 <h3 class="d-flex align-items-center ms-3">
                   <i class="fa-solid fa-calendar-check fs-2"></i>
@@ -123,10 +124,10 @@
                 </h3>
               </div>
 
-              <h1 class="d-flex align-items-center mt-3">
+              <h3 class="d-flex align-items-center mt-3">
               Total:
-                <p class="ms-2 fs-5 mt-1">$ <%= booking.total%></p>
-              </h1>
+                <p class="ms-2 fs-5 mt-1">$ <%= booking.total.to_i%></p>
+              </h3>
             </div>
 
               <br>

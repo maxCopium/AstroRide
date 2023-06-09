@@ -21,6 +21,12 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
   end
 
+  def accept
+    @booking = Booking.find(params[:id])
+    @booking.update(status: true)
+    redirect_to bookings_path
+  end
+
   def update
     @booking = Booking.find(params[:id])
     if @booking.spaceship.user == current_user
