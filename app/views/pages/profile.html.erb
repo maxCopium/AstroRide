@@ -35,7 +35,7 @@
                 <%= content_tag(:i, "", class: "fa-solid fa-pencil-alt") %>
               <% end %>
 
-              <%= link_to spaceship_path(spaceship), method: :delete, data: { turbo_method: 'DELETE', turbo_confirm: "Delete #{spaceship.name} Spaceship?" }, class: "btn btn-danger" do %>
+              <%= link_to spaceship_path(spaceship), method: :delete, data: { turbo_method: 'DELETE', turbo_confirm: "Delete #{spaceship.name} Spaceship?" }, class: "btn btn-del", style:"color:white;" do %>
                 <%= content_tag(:i, "", class: "fa-solid fa-trash-alt") %>
               <% end %>
             </div>
