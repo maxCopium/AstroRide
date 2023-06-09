@@ -18,7 +18,9 @@
   <body>
     <%= render "shared/navbar" %>
     <%= render "shared/banner" %>
-    <%= yield %>
+    <div style="min-height: 70vh;">
+     <%= yield %>
+    </div>
     <%= render "shared/footer" %>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   </body>
