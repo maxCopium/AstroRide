@@ -6,7 +6,7 @@ $duration: 0.5s;
 $ease: cubic-bezier(0.68, 0.15, 0.31, 1.05);
 $f-cta--large: 12px;
 
-body-button {
+body-nutton {
   display: flex;
   height: 10vh;
   justify-content: center;
@@ -14,7 +14,7 @@ body-button {
 
 }
 
-.button-create {
+.button-upload {
   font-family:"Montserrat";
 	background-color: $accent;
 	border-radius: 5px;
@@ -33,7 +33,7 @@ body-button {
 	&:hover {
 		cursor: pointer;
 		background-color: $accentHover;
-		.button-create__logo--complete {
+		.button-upload__logo--complete {
 			animation: rocketAnimation 2s $ease forwards;
 		}
 	}
