@@ -11,7 +11,11 @@
   </div>
 
   <div class="form-actions d-flex justify-content-between mt-4">
-    <%= link_to "Cancel", spaceships_path, class: "btn btn-danger"%>
-    <%= render "shared/button_create" %>
+    <div class="d-flex align-items-center">
+      <%= link_to "Cancel", spaceships_path, class: "btn btn-danger", style: "width: 129px; height: 40px"%>
+    </div>
+    <div>
+      <%= render "shared/button_create" %>
+    </div>
   </div>
 <% end %>
