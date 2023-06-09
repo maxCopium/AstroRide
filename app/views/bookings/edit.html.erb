@@ -1,10 +1,21 @@
 <div class="container mt-4" style="width: 400px">
-  <h1>Add a Booking to the <%= @booking.spaceship.name %> Spaceship</h1>
+  <h1>Accept booking for <%= @booking.spaceship.name %> </h1>
                     <%# PARENT, CHILD %>
+  <div class="container"><div class="d-flex justify-content-between">
+                  <h3 class="d-flex align-items-center ms-3">
+                    <i class="fa-solid fa-calendar-check fs-2"></i>
+                    <p class="ms-2 fs-5 mt-2"><%= @booking.start_date %></p>
+                  </h3>
+                  <h3 class="d-flex align-items-center ms-0 mt-2 me-3">
+                    <i class="fa-solid fa-calendar-xmark fs-2"></i>
+                    <p class="ms-2 fs-5 mt-1"><%= @booking.end_date %></p>
+                  </h3>
+                </div></div>
+
   <div class="form-inputs">
     <%= simple_form_for [@booking], data: { controller: 'flatpickr' } do |f| %>
-        <%= f.input :start_date, as: :string, input_html: { data: { flatpickr_target: "startTime" } } %>
-        <%= f.input :end_date, as: :string, input_html: { data: { flatpickr_target: "endTime" } } %>
+        <% f.input :start_date, as: :string, input_html: { data: { flatpickr_target: "startTime" } } %>
+        <% f.input :end_date, as: :string, input_html: { data: { flatpickr_target: "endTime" } } %>
       <div class="d-flex justify-content-between mt-4">
         <%= f.input :status, as: :select, collection: ["Accept Booking"], prompt: 'Decision' %>
         <%= f.button :submit, class: 'btn btn-gradient' %>
