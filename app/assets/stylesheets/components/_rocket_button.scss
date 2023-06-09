@@ -11,22 +11,23 @@ body-nutton {
   height: 10vh;
   justify-content: center;
   align-items:center;
+
 }
 
 .button-upload {
   font-family:"Montserrat";
 	background-color: $accent;
-	box-shadow: 0px 0px 16px $accent;
 	border-radius: 5px;
 	display: flex;
 	justify-content: center;
-	align-items: stretch;
+	align-items: center;
 	color: $white;
-	flex-direction: column;
+	flex-direction: row;
 	border: none;
 	padding: initial;
 	transition: all $duration $ease;
-  margin: 8px;
+  margin: 15px;
+  height:40px;
 
 
 	&:hover {
@@ -39,14 +40,14 @@ body-nutton {
 
 	&__logo {
 		width: 4.2rem;
+    margin-bottom: 5px;
 	}
 	&__text {
 		font-size: $f-cta--large;
 		font-weight: 600;
 		display: block;
-		margin-top: 0.8rem;
     letter-spacing: 0.1rem;
-    padding: 1px;
+    margin-left: 10px;
  	}
 
 	@keyframes rocketAnimation {
