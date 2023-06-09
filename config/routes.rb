@@ -11,4 +11,6 @@ Rails.application.routes.draw do
   resources :bookings, only: [:edit, :update, :destroy]
   get "/profile", to: "pages#profile", as: :profile
   get "/bookings", to: "pages#booking", as: :bookings
+
+  get "/bookings/:id/accept", to: "bookings#accept", as: :accept_booking
 end
